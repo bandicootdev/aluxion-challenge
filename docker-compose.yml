@@ -1,0 +1,14 @@
+version: '3.9'
+services:
+  dev:
+    container_name: aluxion-api-dev
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: npm run start:debug
+    ports:
+      - '3000:3000'
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: unless-stopped
